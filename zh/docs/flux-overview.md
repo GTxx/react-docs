@@ -41,7 +41,7 @@ Flux使用单向的数据流动来避开MVC. 当用户与React视图交互的时
   <img width="650" src="http://facebook.github.io/flux/img/flux-simple-f8-diagram-with-client-action-1300w.png" alt="unidirectional data flow in Flux">
 </figure>
 
-所有的数据的流动都通过中枢dispatcher。Action可以通过_action creator_产生并被提供给dispatcher，但多数情况下action是通过用户与views的交互产生。dispaer接收到action并执行那些已经注册的回调，向所有stores分发action。通过注册的回调，store响应那些与他们所保存的状态有关的action。然后store会触发一个 _change_ 事件，来提醒controller-views数据已经发生了改变。Controller-views监听这些事件并重新从store中获取数据。这些controller-views调用他们自己的`setState()`方法，重新渲染自身以及组件树上的所有后代组件。
+所有的数据的流动都通过中枢dispatcher。Action可以通过_action creator_产生并被提供给dispatcher，但多数情况下action是通过用户与views的交互产生。dispatcher接收到action并执行那些已经注册的回调，向所有stores分发action。通过注册的回调，store响应那些与他们所保存的状态有关的action。然后store会触发一个 _change_ 事件，来提醒controller-views数据已经发生了改变。Controller-views监听这些事件并重新从store中获取数据。这些controller-views调用他们自己的`setState()`方法，重新渲染自身以及组件树上的所有后代组件。
 
 <figure>
   <img width="650" src="http://facebook.github.io/flux/img/flux-simple-f8-diagram-explained-1300w.png" alt="unidirectional data flow in Flux">
